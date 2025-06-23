@@ -9,9 +9,9 @@ class Episode(db.Model, SerializerMixin):
     serialize_rules = ('-appearances.episode', )
 
 
-    db.id  = db.Column(db.Integer, primary_key = True)
-    db.date = db.Column(db.String)
-    db.number = db.Column(db.Integer)
+    id  = db.Column(db.Integer, primary_key = True)
+    date = db.Column(db.String)
+    number = db.Column(db.Integer)
 
 
     appearances = db.relationship('Appearance', back_populates = 'episode', cascade ='all, delete-orphan')

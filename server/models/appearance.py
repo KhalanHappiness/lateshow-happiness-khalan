@@ -9,10 +9,10 @@ class Appearance(db.Model, SerializerMixin):
 
    serialize_rules = ('-guest.appearances', '-episode.appearances')
 
-   db.id = db.Column(db.Integer)
-   db.rating = db.Column(db.Integer)
-   db.episode_id = db.Column(db.Integer)
-   db.guest_id = db.Column(db.Integer)
+   id = db.Column(db.Integer, primary_key = True)
+   rating = db.Column(db.Integer)
+   episode_id = db.Column(db.Integer, db.ForeignKey('episodes.id'), nullable =False)
+   guest_id = db.Column(db.Integer, db.ForeignKey('guests.id'), nullable =False)
 
 
    guest = db.relationship('Guest', back_populates = 'appearances')
