@@ -5,6 +5,8 @@ from . import db
 class Guest(db.Model, SerializerMixin):
     __tablename__ = 'guests'
 
+    serialize_rules = ('-appearances.guest', )
+
 
     id = db.Column(db.Integer, primary_key= True)
     name = db.Column(db.String)

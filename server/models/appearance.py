@@ -7,6 +7,8 @@ class Appearance(db.Model, SerializerMixin):
    
    __tablename__ = 'appearances'
 
+   serialize_rules = ('-guest.appearances', '-episode.appearances')
+
    db.id = db.Column(db.Integer)
    db.rating = db.Column(db.Integer)
    db.episode_id = db.Column(db.Integer)

@@ -6,6 +6,9 @@ class Episode(db.Model, SerializerMixin):
 
     __tablename__ = 'episodes'
 
+    serialize_rules = ('-appearances.episode', )
+
+
     db.id  = db.Column(db.Integer, primary_key = True)
     db.date = db.Column(db.String)
     db.number = db.Column(db.Integer)
